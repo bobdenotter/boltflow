@@ -8,11 +8,11 @@ This is a convenient checklist for working with Boltflow. For details on each to
 - [ ] Getting the bolt distribution files
 - [ ] Get `boltflow.sh`
 - [ ] Creating `config_local.yml`
-- [ ] (Optional: Creating a database)
+- [ ] Optional: Creating a database
 - [ ] Setting the local database credentials
 - [ ] Creating a git repository at Gitlab / Github
 - [ ] Adding local files, initial git commit
-- [ ] (Optional: renaming / symlinking `public/`)
+- [ ] Optional: renaming / symlinking `public/`
 - [ ] Configuring the webserver
 
 ## Working on the project

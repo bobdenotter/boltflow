@@ -36,7 +36,7 @@ for your Bolt projects:
 
 Boltflow is divided into three parts, with one appendix:
 
- - [Setting up a project](bear://x-callback-url/open-note?id=508138A5-A93D-45F3-9ED7-7318A0B6AF82-6993-00006C040BA349E5)
- - [Working in / updating a project](bear://x-callback-url/open-note?id=067B0806-3D06-4C4A-8F04-FC750D3CE556-6993-00006C0EF563DBEB)
+ - [Setting up a project](Setting up a project.md)
+ - [Working in / updating a project](Working + updating a project.md)
  - [Deploying a project](Deploying a project.md)
  - Appenix: [Boltflow checklist](Development Checklist.md)
