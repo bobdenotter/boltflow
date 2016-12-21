@@ -40,3 +40,15 @@ Boltflow is divided into three parts, with one appendix:
  - [Working in / updating a project](Working + updating a project.md)
  - [Deploying a project](Deploying a project.md)
  - Appenix: [Boltflow checklist](Development Checklist.md)
+
+-----------
+
+Want to gain more knowledge on some of the technologies used in this document? Fret not, because I have compiled a small list of links with additional information:
+
+ - 📹 [Command Line Power User][clipu]
+ - 📄 [git - the simple guide][gitguide]
+ - 📖💵 [Git for humans][gitforhumans] by A Book Apart
+
+[clipu]: http://commandlinepoweruser.com/
+[gitguide]: http://rogerdudler.github.io/git-guide/
+[gitforhumans]: https://abookapart.com/products/git-for-humans
