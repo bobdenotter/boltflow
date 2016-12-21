@@ -1,0 +1,13 @@
+# This is the DEVELOPMENT version of config_local.yml
+
+# Database credentials.
+database:
+  driver: mysql
+  databasename: bolt
+  username: database_user
+  password: 'hunter42'
+
+# Debug settings
+debug: true
+debug_error_level: -1
+strict_variables: true
