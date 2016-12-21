@@ -14,7 +14,7 @@ In order to do this, we’re going to use a simple shell script, that does a few
 To run it, simply issue the command below:
 
 ```
-sh boltflow.sh
+./boltflow.sh
 ```
 
 If you’re working on a project in a team, you might be working in your own branch, or you might not. 
@@ -29,14 +29,16 @@ This will fetch the latest versions of Bolt and dependent composer packages, for
 
 ```
 git add composer.lock extensions/composer.lock
-git commit -m "Updating Bolt, Bolt extensions and Composer packages"
+git commit -m "Updating Bolt, Bolt extensions and Composer packages."
 git push
 ```
 
-If the change breaks stuff, revert to the last known stable situation, like this:
+If the change breaks your project, you can revert to the last known stable situation, like this:
 
 ```
-git checkout composer.lock
-git checkout extensions/composer.lock
+git checkout -- composer.lock
+git checkout -- extensions/composer.lock
 ./boltflow.sh 
 ```
+
+This will revert the two `.lock` files to the version in git, and it will run the ‘install’ process to fetch the dependencies to match the previous state.
