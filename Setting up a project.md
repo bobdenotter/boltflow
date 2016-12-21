@@ -17,8 +17,8 @@ This will give you a ready-to-go install of Bolt.
 
 But, before we actually start developing, we need to take care of a few things:
 
-* We should prepare a few files, and set up a `config_local.yml` with settings appropriate to our development environment.
-* We need to set up a git repository to store the site in.
+ - We should prepare a few files, and set up a `config_local.yml` with settings appropriate to our development environment.
+ - We need to set up a git repository to store the site in.
 
 ## Preparing our workflow
 
@@ -33,7 +33,7 @@ current. Both in regard to the latest Bolt version, as well as what’s in our g
 repository:
 
 ```
-curl -O https://raw.githubusercontent.com/bobdenotter/bolt-boltflow-shell-script/master/boltflow.sh
+curl -O https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/boltflow.sh
 chmod ugo+x ./boltflow.sh
 ```
 
@@ -58,8 +58,6 @@ It’s strongly recommended to store the database credentials in your
 `config_local.yml` and _not_ in the general `config.yml`. If you do it like
 this, you’ll be able to store most configuration in `config.yml`, and be able to
 store that in your
-
-
 
 ## Setting up a .git repository
 
@@ -97,9 +95,16 @@ git push -u origin master
 
 Where `{path}` needs to be replaced with the SSH path you’ve noted above, obviously.
 
-At this point you’ll have a working git repository, that looks like [bobdenotter/boltflow-project](https://github.com/bobdenotter/boltflow-project).
+At this point you’ll have a working git repository, that looks like
+[bobdenotter/boltflow-project](https://github.com/bobdenotter/boltflow-project).
 
 ![](images/Screen%20Shot%202016-12-20%20at%2018.27.21.png)
+
+## Updating our .gitignore
+
+As you might've noticed, we just added all files to git, without scrutiny. We were able to do this because the Bolt distibution comes with a default [`.gitignore`][gitignore] file that's a good fit for how we choose to work. Right now, there's only one modification to make: If you added your database credentials to a new `config_local.yml` file, we can atually put `config.yml` into git.
+
+To do this, edit `.gitignore` and uncomment the following line.
 
 ## Setting up a local webserver
 
@@ -110,19 +115,19 @@ _not_ the folder that should be served by your webserver. The one that should is
 called `public/` by default. If your webserver is configured to use another
 folder, there are two options available:
 
-### Option1: Symlink
+### Option 1: Symlink
 
 Create a symlink from what the server uses to the `public/` folder. For example,
 something like `ln -s public html` if your webserver uses `html` instead.
 
-### Option 1: Rename `public/`
+### Option 2: Rename `public/`
 
 Rename the folder `public/` to what it should be. You’ll need to fix three
 additional things in this case:
 
-1. Edit `.bolt.yml` to match the change.
-2. If the folder name is not `public/`, `public_html/` or `html/`, you’ll need to edit `boltflow.sh` to use this name:  `PUBLICFOLDER="public”`
-3. make sure you `git add` the new folder to your repository.
+ 1. Edit `.bolt.yml` to match the change.
+ 2. If the folder name is not `public/`, `public_html/` or `html/`, you’ll need to edit `boltflow.sh` to use this name:  `PUBLICFOLDER="public”`
+ 3. make sure you `git add` the new folder to your repository.
 
 ## Configuring the webserver
 
@@ -139,3 +144,5 @@ webserver running, so I’d advise to keep running that. If you don’t have a
 webserver running on your local development machine, look into
 [WAMP](http://www.ampps.com/), [MAMP](https://www.mamp.info/en/) or
 [XAMPP](https://www.apachefriends.org/index.html).
+
+[gitignore]: https://github.com/bolt/bolt-distribution/blob/master/extras/.gitignore
