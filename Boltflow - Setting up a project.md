@@ -34,13 +34,17 @@ Run it once, to set up our `config_local.yml` file:
 ./boltflow.sh config_local_dev
 ```
 
-Run it again, to set up our extensions, cache and files folders: 
+This will create the file, and open it in an editor. You should add your database credentials in this file, so that they will remain local to the current environment, and they don’t get committed to the git repository we’re about to set up.
+
+Run boltflow.sh again, to set up our extensions, cache and files folders: 
 
 ```
 ./boltflow.sh
 ```
 
 It’s strongly recommended to store the database credentials in your `config_local.yml` and _not_ in the general `config.yml`. If you do it like this, you’ll be able to store most configuration in `config.yml`, and be able to store that in your 
+
+
 
 ## Setting up a .git repository
 You can use any git provider you prefer, as long as you use a form of versioning control for your projects. We’re going to create a new repository, and add our project files to it, using the `.gitignore` that comes with our standard setup. 
@@ -73,6 +77,25 @@ At this point you’ll have a working git repository, that looks like [bobdenott
 
 ![](Boltflow - Setting up a project/Screen%20Shot%202016-12-20%20at%2018.27.21.png)
 
+## Setting up a local webserver
+To work on your project, you’ll need to configure a webserver to serve Bolt in a browser. Most of Bolt’s files are outside of the so-called webroot. This means that your bolt project folder (the one that contains `app/` and `vendor/` is _not_ the folder that should be served by your webserver. The one that should is called `public/` by default. If your webserver is configured to use another folder, there are two options available: 
 
+### Option1: Symlink
+Create a symlink from what the server uses to the `public/` folder. For example, something like `ln -s public html` if your webserver uses `html` instead.
 
+### Option 1: Rename `public/`
+Rename the folder `public/` to what it should be. You’ll need to fix three additional things in this case:
 
+1. Edit `.bolt.yml` to match the change.
+2. If the folder name is not `public/`, `public_html/` or `html/`, you’ll need to edit `boltflow.sh` to use this name:  `PUBLICFOLDER="public”`
+3. make sure you `git add` the new folder to your repository.
+
+## Configuring the webserver
+Perhaps the easiest way to get a server up and running is by using PHP’s built-in webserver. You can start it from the command line: 
+
+```
+php -S localhost:8000 -t public/
+```
+
+You’re of course free to use another webserver, like Apache or Nginx. How to configure these is out of scope for this document. 
+You probably already have a webserver running, so I’d advise to keep running that. If you don’t have a webserver running on your local development machine, look into [WAMP](http://www.ampps.com/), [MAMP](https://www.mamp.info/en/) or [XAMPP](https://www.apachefriends.org/index.html).
