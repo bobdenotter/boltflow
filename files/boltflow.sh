@@ -23,19 +23,19 @@ else
 fi
 
 if [[ $1 = "selfupdate" ]] ; then
-    curl -O https://raw.githubusercontent.com/bobdenotter/boltflow.sh/master/boltflow.sh
+    curl -O https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/boltflow.sh
     exit 1
 fi
 
 if [[ $1 = "config_local_dev" ]] ; then
-    curl -o $WD/app/config/config_local.yml https://raw.githubusercontent.com/bobdenotter/boltflow.sh/master/config_local_dev.yml
+    curl -o $WD/app/config/config_local.yml https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/config_local_dev.yml
     echo "Fetched 'config_local.yml' for DEV. Opening it in an editor."
     ${FCEDIT:-${VISUAL:-${EDITOR:-vi}}} $WD/app/config/config_local.yml &
     exit 1
 fi
 
 if [[ $1 = "config_local_prod" ]] ; then
-    curl -o $WD/app/config/config_local.yml https://raw.githubusercontent.com/bobdenotter/boltflow.sh/master/config_local_prod.yml
+    curl -o $WD/app/config/config_local.yml https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/config_local_prod.yml
     echo "Fetched 'config_local.yml' for PROD. Opening it in an editor."
     ${FCEDIT:-${VISUAL:-${EDITOR:-vi}}} $WD/app/config/config_local.yml &
     exit 1
