@@ -3,7 +3,7 @@ Boltflow - introduction
 
 These documents describe my preferred way of working with Bolt, when it comes to
 the “dev ops” part of the process. So, the workflow of how to set up a Bolt
-instal in such a way that it’s pleasant to work with, easy to upgrade, and
+install in such a way that it’s pleasant to work with, easy to upgrade, and
 simple to deploy on a client’s server.
 
 Feel free to mix-and-match parts of this workflow to suit your own needs. You
