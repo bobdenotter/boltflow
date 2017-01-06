@@ -38,7 +38,7 @@ curl -O https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/bolt
 chmod ugo+x ./boltflow.sh
 ```
 
-Run it once, to set up our `config_local.yml` file:
+Run it with the `config_local_dev` command, to set up our `config_local.yml` file:
 
 ```
 ./boltflow.sh config_local_dev
@@ -48,12 +48,6 @@ This will create the file, and open it in an editor. You should add your
 database credentials in this file, so that they will remain local to the
 current environment, and they don’t get committed to the git repository we’re
 about to set up.
-
-Run boltflow.sh again, to set up our extensions, cache and files folders:
-
-```
-./boltflow.sh
-```
 
 It’s strongly recommended to store the database credentials in your
 `config_local.yml` and _not_ in the general `config.yml`. If you do it like
@@ -95,23 +89,26 @@ git remote add origin {path}
 git push -u origin master
 ```
 
-Where `{path}` needs to be replaced with the SSH path you’ve noted above, obviously.
+Where `{path}` needs to be replaced with the SSH path you’ve noted above,
+obviously.
 
 At this point you’ll have a working git repository, that looks like
 [bobdenotter/boltflow-project][].
 
 ![](images/github_project.png)
 
-## Updating our `.gitignore`
+## Fetching our composer dependencies
 
-As you might've noticed, we just added all files to git, without scrutiny. We
-were able to do this because the Bolt distibution comes with a default
-[`.gitignore`][gitignore] file that's a good fit for how we choose to work.
-Right now, there's only one modification to make: If you added your database
-credentials to a new `config_local.yml` file, we can atually put `config.yml`
-into git.
+When you're setting up a Bolt project using the `.tgz` distro, you're already
+getting the `vendor/` folder with all the components pre-installed. However,
+we're going to be continously updating our dependencies as well as Bolt itself.
 
-To do this, edit `.gitignore` and uncomment the following line.
+Run boltflow.sh again, to set up our extensions, cache and files folders:
+
+```
+./boltflow.sh
+```
+
 
 ## Preparing the 'web root'
 
@@ -124,8 +121,8 @@ should is called `public/` by default.
 For more information on why this is good practice, read:
 [Outside the web root][webroot].
 
-If your webserver is configured to use another folder, there are two options
-available:
+If you have no control over your webserver, and it is configured to use another
+folder, there are two options available:
 
 ### Option 1: Symlink
 
@@ -143,6 +140,52 @@ additional things in this case:
     to edit `boltflow.sh` to use this name:  `PUBLICFOLDER="public”`
  3. make sure you `git add` the new folder to your repository.
 
+## Updating our `.gitignore`
+
+As you might've noticed, we just added all files to git, without scrutiny. We
+were able to do this because the Bolt distibution comes with a default
+[`.gitignore`][gitignore] file that's a good fit for how we choose to work.
+Right now, there's only one modification to make: If you added your database
+credentials to a new `config_local.yml` file, we can actually put `config.yml`
+into git.
+
+To do this, edit `.gitignore` and comment the following line.
+
+```
+# app/config/config.yml
+```
+
+By now we'll have changed a handful of files since our initial commit. Run
+`git status` to see what has changed:
+
+```
+[~/Sites/test]$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   .gitignore
+    modified:   boltflow.sh
+    deleted:    composer.json.dist
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+    app/config/config.yml
+    composer.json
+    composer.lock
+```
+
+If this looks good, commit these files to your git repository:
+
+```
+git add .
+git commit -m "Setting up Boltflow."
+git push
+```
+
 ## Configuring the webserver
 
 Perhaps the easiest way to get a server up and running is by using PHP’s
@@ -151,6 +194,11 @@ built-in webserver. You can start it from the command line:
 ```
 php -S localhost:8000 -t public/
 ```
+
+Open up http://localhost:8000 in a browser, and you'll be greeted by the page
+to create the first user:
+
+![](images/firstuser.png)
 
 You’re of course free to use another webserver, like Apache or Nginx. How to
 configure these is out of scope for this document. You probably already have a
