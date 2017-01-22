@@ -64,6 +64,7 @@ fi
 mkdir -p app/database app/cache extensions/ $PUBLICFOLDER/files/ $PUBLICFOLDER/thumbs/
 chmod -Rf 777 $PUBLICFOLDER/files/ $PUBLICFOLDER/theme/ $PUBLICFOLDER/thumbs/
 chmod -Rf 777 app/database/ app/cache/ app/config/ extensions/
+git config core.fileMode false
 
 if [[ ! -f "$WD/composer.phar" ]] ; then
     curl -sS https://getcomposer.org/installer | php
