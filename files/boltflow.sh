@@ -17,9 +17,9 @@ elif [[ $PUBLICFOLDER = "" ]] ; then
 fi
 
 if [[ $1 = "update" ]] ; then
-    COMPOSERCOMMAND="update"
+    COMPOSERCOMMAND="update --ignore-platform-reqs --no-dev"
 else
-    COMPOSERCOMMAND="install"
+    COMPOSERCOMMAND="install --no-dev"
 fi
 
 if [[ $1 = "selfupdate" ]] ; then
