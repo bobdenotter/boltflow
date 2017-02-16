@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PUBLICFOLDER=""
 
@@ -24,6 +24,8 @@ fi
 
 if [[ $1 = "selfupdate" ]] ; then
     curl -O https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/boltflow.sh
+    chmod a+x ./boltflow.sh
+    echo "Updated 'boltflow.sh' to the latest version."
     exit 1
 fi
 
