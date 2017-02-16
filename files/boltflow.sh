@@ -17,9 +17,9 @@ elif [[ $PUBLICFOLDER = "" ]] ; then
 fi
 
 if [[ $1 = "update" ]] ; then
-    COMPOSERCOMMAND="update --ignore-platform-reqs --no-dev"
+    COMPOSERCOMMAND="update"
 else
-    COMPOSERCOMMAND="install --no-dev"
+    COMPOSERCOMMAND="install"
 fi
 
 if [[ $1 = "selfupdate" ]] ; then
@@ -70,7 +70,7 @@ if [[ ! -f "$WD/composer.phar" ]] ; then
     curl -sS https://getcomposer.org/installer | php
 fi
 
-php composer.phar $COMPOSERCOMMAND --no-dev
+php composer.phar $COMPOSERCOMMAND --ignore-platform-reqs --no-dev
 
 if [[ -f "$WD/extensions/composer.json" ]] ; then
     cd extensions
