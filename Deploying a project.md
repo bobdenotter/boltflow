@@ -33,12 +33,12 @@ chance of breaking websites and downtime.
 Run:
 
 ```
-./boltflow --dry-run
+./boltflow.sh --dry-run
 ```
 
 If this doesn't produce any errors, run the deploy for real:
 
 ```
-./boltflow
+./boltflow.sh
 ```
 
