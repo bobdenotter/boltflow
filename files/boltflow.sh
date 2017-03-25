@@ -73,6 +73,10 @@ if [[ ! -f "$WD/composer.phar" ]] ; then
     curl -sS https://getcomposer.org/installer | php
 fi
 
+if [[ $1 = "update" ]] ; then
+    php composer.phar selfupdate
+fi
+
 php composer.phar $COMPOSERCOMMAND --ignore-platform-reqs --no-dev
 
 if [[ -f "$WD/extensions/composer.json" ]] ; then
