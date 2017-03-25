@@ -192,10 +192,10 @@ Perhaps the easiest way to get a server up and running is by using PHP’s
 built-in webserver. You can start it from the command line:
 
 ```
-php -S localhost:8000 -t public/
+app/nut server:run
 ```
 
-Open up http://localhost:8000 in a browser, and you'll be greeted by the page
+Open up http://0.0.0.0:8000 in a browser, and you'll be greeted by the page
 to create the first user:
 
 ![](images/firstuser.png)
