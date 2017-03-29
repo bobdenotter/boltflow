@@ -69,9 +69,9 @@ if [[ ! -f "$WD/composer.json" ]] ; then
     mv $WD/composer.json.dist $WD/composer.json
 fi
 
-mkdir -p app/database app/cache extensions/ $PUBLICFOLDER/files/ $PUBLICFOLDER/thumbs/
-chmod -Rf 777 $PUBLICFOLDER/files/ $PUBLICFOLDER/theme/ $PUBLICFOLDER/thumbs/
+mkdir -p app/database app/cache extensions/ $PUBLICFOLDER/files/ $PUBLICFOLDER/thumbs/ $PUBLICFOLDER/extensions/
 chmod -Rf 777 app/database/ app/cache/ app/config/ extensions/
+chmod -Rf 777 $PUBLICFOLDER/files/ $PUBLICFOLDER/theme/ $PUBLICFOLDER/thumbs/ $PUBLICFOLDER/extensions/
 
 if [[ ! -f "$WD/composer.phar" ]] ; then
     curl -sS https://getcomposer.org/installer | php
