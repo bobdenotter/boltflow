@@ -31,21 +31,25 @@ fi
 
 if [[ $1 = "config_local_dev" ]] ; then
     curl -o $WD/app/config/config_local.yml https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/config_local_dev.yml
-    echo "Fetched 'config_local.yml' for DEV. Opening it in an editor."
-    ${FCEDIT:-${VISUAL:-${EDITOR:-vi}}} $WD/app/config/config_local.yml &
+    echo "Fetched 'app/config/config_local.yml' for DEV. Open it in an editor, and edit your credentials."
+    # TODO: only do this on MacOS
+    # ${FCEDIT:-${VISUAL:-${EDITOR:-vi}}} $WD/app/config/config_local.yml &
     exit 1
 fi
 
 if [[ $1 = "config_local_prod" ]] ; then
     curl -o $WD/app/config/config_local.yml https://raw.githubusercontent.com/bobdenotter/boltflow/master/files/config_local_prod.yml
-    echo "Fetched 'config_local.yml' for PROD. Opening it in an editor."
-    ${FCEDIT:-${VISUAL:-${EDITOR:-vi}}} $WD/app/config/config_local.yml &
+    echo "Fetched 'app/config/config_local.yml' for PROD. Open it in an editor, and edit your credentials."
+    # TODO: only do this on MacOS
+    # ${FCEDIT:-${VISUAL:-${EDITOR:-vi}}} $WD/app/config/config_local.yml &
     exit 1
 fi
 
 if [[ ! -f "$WD/app/config/config_local.yml" ]] ; then
     echo ""
-    echo "Note: No local config is present at 'app/config/config_local.yml'. Run the following to get it:"
+    echo "Note: No local config is present at 'app/config/config_local.yml'. Run either of the following to get it:"
+    echo ""
+    echo "./boltflow.sh config_local_dev"
     echo "./boltflow.sh config_local_prod"
     echo ""
 fi
