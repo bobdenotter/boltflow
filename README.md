@@ -49,8 +49,10 @@ information:
 
  - 📹 [Command Line Power User][clipu]
  - 📄 [git - the simple guide][gitguide]
+ - 📄 [Github guides][githubguide]
  - 📖💵 [Git for humans][gitforhumans] by A Book Apart
 
 [clipu]: http://commandlinepoweruser.com/
 [gitguide]: http://rogerdudler.github.io/git-guide/
+[githubguide]: https://guides.github.com/
 [gitforhumans]: https://abookapart.com/products/git-for-humans
