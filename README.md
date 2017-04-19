@@ -36,7 +36,7 @@ for your Bolt projects:
 
 Boltflow is divided into three parts, with one appendix:
 
- - [Setting up a project](Setting up a project.md)
+ - [Setting up a project][setting-up]
  - [Working in / updating a project](Working + updating a project.md)
  - [Deploying a project](Deploying a project.md)
  - Appendix: [Boltflow checklist](Development Checklist.md)
@@ -56,3 +56,4 @@ information:
 [gitguide]: http://rogerdudler.github.io/git-guide/
 [githubguide]: https://guides.github.com/
 [gitforhumans]: https://abookapart.com/products/git-for-humans
+[setting-up]: [Setting up a project.md]
