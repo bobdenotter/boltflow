@@ -13,7 +13,7 @@ elif [[ $PUBLICFOLDER = "" ]] && [[ -d "$WD/public" ]] ; then
     PUBLICFOLDER="public"
 elif [[ $PUBLICFOLDER = "" ]] ; then
     echo ""
-    echo "ERROR: Could not determine the PUBLICFOLDER. Please edit workflow.sh, and set PUBLICFOLDER manually."
+    echo "ERROR: Could not determine the PUBLICFOLDER. Please edit boltflow.sh, and set PUBLICFOLDER manually."
 fi
 
 if [[ $1 = "update" ]] ; then
