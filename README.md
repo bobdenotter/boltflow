@@ -56,4 +56,4 @@ information:
 [gitguide]: http://rogerdudler.github.io/git-guide/
 [githubguide]: https://guides.github.com/
 [gitforhumans]: https://abookapart.com/products/git-for-humans
-[setting-up]: [Setting up a project.md]
+[setting-up]: [./Setting%20up%20a%20project.md]
