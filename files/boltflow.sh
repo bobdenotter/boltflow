@@ -2,6 +2,8 @@
 
 PUBLICFOLDER=""
 
+echo "⇒ Boltflow 🚀 - version 0.5.0"
+
 # Store the script working directory
 WD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -86,4 +88,10 @@ php composer.phar $COMPOSERCOMMAND --ignore-platform-reqs --no-dev
 if [[ -f "$WD/extensions/composer.json" ]] ; then
     cd extensions
     php ../composer.phar $COMPOSERCOMMAND --ignore-platform-reqs --no-dev
+    cd ..
 fi
+
+php app/nut cache:clear
+
+echo ""
+echo "Done! 👍"
