@@ -1,0 +1,28 @@
+
+@font-face {
+    font-display: fallback;
+    font-family: 'Cardo';
+    src: url('../fonts/700.woff2') format('woff2'),
+        url('../fonts/700.woff') format('woff'),
+        url('../fonts/700.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+@font-face {
+    font-display: fallback;
+    font-family: 'Cardo';
+    src: url('../fonts/400i.woff2') format('woff2'),
+        url('../fonts/400i.woff') format('woff'),
+        url('../fonts/400i.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic
+}
+@font-face {
+    font-display: fallback;
+    font-family: 'Cardo';
+    src: url('../fonts/400.woff2') format('woff2'),
+        url('../fonts/400.woff') format('woff'),
+        url('../fonts/400.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal
+}

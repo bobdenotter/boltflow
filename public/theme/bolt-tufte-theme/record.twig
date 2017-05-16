@@ -1,0 +1,41 @@
+{% extends '_base.twig' %}
+
+{% import '_macro.twig' as macros %}
+
+{% block pagename %}
+    <a href='{{ record.link }}'>{{ record.title|excerpt(38) }}</a>
+{% endblock %}
+
+{% block title %}
+    {{ record.title }}
+{% endblock %}
+
+{% block content %}
+
+    <section>
+
+    {% if record.image_position|default('main') == 'sidebar' %}
+        {{ macros.image(record.values.image, record, 'sidebar') }}
+    {% endif %}
+
+    <p class='subtitle'>
+        {% if record.introduction is not empty %}
+            {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
+        {% else %}
+            {{ record.teaser(300)|striptags('<b><em><i><strong><a><u>')|raw }}
+        {% endif %}
+    </p>
+
+    {% if record.image_position|default('main') == 'main' %}
+        {{ macros.image(record.values.image, record, 'main') }}
+    {% endif %}
+
+
+    {{ record.body }}
+
+    {% include '_recordfooter.twig' %}
+
+
+    </section>
+
+{% endblock %}
