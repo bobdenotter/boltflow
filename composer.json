@@ -1,0 +1,31 @@
+{
+    "name": "bolt/composer-install",
+    "description": "Sophisticated, lightweight & simple CMS",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^5.5.9 || ^7.0",
+        "bolt/bolt": "^3.3@beta",
+        "passwordlib/passwordlib": "^1.0@beta"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Bolt\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-create-project-cmd": [
+            "Bolt\\Composer\\ScriptHandler::configureProject",
+            "Bolt\\Composer\\ScriptHandler::installThemesAndFiles",
+            "nut extensions:setup"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-release/3.3" : "3.3.x-dev"
+        }
+    }
+}
