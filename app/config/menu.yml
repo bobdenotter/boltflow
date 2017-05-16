@@ -2,25 +2,19 @@
 # details: https://docs.bolt.cm/configuration/menus
 
 main:
-    - label: Home
-      title: This is the first menu item.
-      path: homepage
-      class: first
-    - label: Second item
-      path: entry/1
+    - label: Pages
+      link: /
       submenu:
-          - label: Sub 1
-            path: entry/2
-          - label: Sub 2
-            class: menu-item-class
-            path: entry/3
-          - label: Sub 3
-            path: entry/4
-          - label: Sub 4
-            class: sub-class
-            path: page/3
-    - label: All pages
-      path: pages/
+          - label: Introduction
+            link: /
+          - label: Setting up a project
+            link: /Setting_up_a_project
+          - label: Working + updating a project
+            link: /Working_updating_a_project
+          - label: Deploying a project
+            link: /Deploying_a_project
+          - label: Development Checklist
+            link: /Development_Checklist
     - label: The Bolt site
       link: http://bolt.cm
       class: last

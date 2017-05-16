@@ -4,7 +4,7 @@
 # Note: If variables do not immediately show up, clear the cache, in the Bolt Backend.
 
 # The font for the body is either "serif" or "sans-serif"
-bodyfont: serif
+bodyfont: sans-serif
 
 boxed: false
 

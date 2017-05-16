@@ -5,7 +5,7 @@ $debug-breakpoint: false;
 
 // Colors
 $color-accent     : rgb(0, 20, 160);
-$color-body       : rgb(249, 249, 244);
+$color-body       : lighten(rgb(251, 251, 246),2);
 $color-text-body  : rgb(60, 60, 60);
 $color-text-light : rgb(184, 186, 188);
 $color-ui-light   : lighten($color-text-light, 14%);

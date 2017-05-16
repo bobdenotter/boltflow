@@ -128,8 +128,12 @@ hr {
   margin: 2.2rem 0;
 }
 
+section > p.meta {
+  margin-top: -1rem;
+}
+
 p.meta {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: #555;
   margin: 0.7rem 0;
   font-style: italic;
@@ -269,6 +273,26 @@ article {
 
 aside {
   padding-top: 0.8rem;
+    color: lighten(desaturate($color-text-body, 50), 20);
+
+
+  p, ol, ul {
+    font-size: 1.15rem;
+    line-height: 1.7rem;
+  }
+
+  a {
+    $color: lighten(desaturate($color-accent, 80), 30);
+    color: $color;
+    text-decoration: none;
+    background-image: linear-gradient(rgba($color, 0.25) 0%, $color 100%);
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+    background-position: 0 86%;
+    // Clear descendors from underline
+    text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
+  }
+
 }
 
 aside.sideimage {
@@ -483,7 +507,7 @@ nav#mainnav {
   span.sitename,
   span.pagename {
     font-size: 1.6em;
-    line-height: 2em;
+    line-height: 2.3em;
     position: absolute;
 
     @media (max-width: #{$grid-breakpoint-l-min}) {
@@ -512,7 +536,7 @@ nav#mainnav {
   margin-top: 0.2rem;
 
   ul {
-    fxloat: right;
+    // float: right;
     margin: 0;
     padding: 0;
   }
@@ -521,8 +545,9 @@ nav#mainnav {
     display: block;
     color: #333;
     text-decoration: none;
-    line-height: 3rem;
+    line-height: 3.4rem;
     padding: 0 1em;
+    font-size: 92%;
 
     @media (max-width: #{$grid-breakpoint-l-min}) {
       font-size: 18px;
@@ -547,7 +572,7 @@ nav#mainnav {
     background:#ddd
   }
 
-  ul li:hover {
+  ul li:not(:last-of-type):hover {
     background:#f6f6f6
   }
 
@@ -562,7 +587,7 @@ nav#mainnav {
 
   ul ul li {
     float:none;
-    width:200px
+    width: 300px
   }
 
   ul ul ul {
@@ -572,6 +597,17 @@ nav#mainnav {
 
   ul li:hover > ul {
     display:block
+  }
+
+  form {
+    margin-top: 0.4em;
+
+    input {
+      font-size: 18px;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 10em;
+      margin: 0.6em 0 0 1em;
+    }
   }
 
 }
