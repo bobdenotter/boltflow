@@ -79,8 +79,8 @@ cron_hour: 3
 # Note: If you've changed the filename, and your changes do not show up on
 #       the website, be sure to check for a theme.yml file in your theme's
 #       folder. If a template is set there, it will override the setting here.
-homepage: page/1
-homepage_template: introduction.twig
+homepage: false
+homepage_template: Introduction.twig
 
 # The default content for the 404 page. Uses the 'record_template' template by
 # default.

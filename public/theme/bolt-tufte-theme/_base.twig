@@ -27,6 +27,7 @@
 
 <nav id='mainnav'>
   <div class='container'>
+<div class="col-l-8 offset-l-2" style="float: none;">
     <span class='sitename'>
       {% if app.request.get('_route') != 'homepage' %}
         <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
@@ -38,6 +39,7 @@
       {% endblock %}
     </span>
     {{ menu() }}
+  </div>
   </div>
 </nav>
 
