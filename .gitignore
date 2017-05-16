@@ -1,6 +1,6 @@
 # Don't put config.yml in git, unless you're absolutely sure that all sensitive
 # info (database credentials, mail settings) are _only_ in config_local.yml
-app/config/config.yml
+# app/config/config.yml
 
 # Usually we don't put 'uploaded files' into git either.
 # files/
