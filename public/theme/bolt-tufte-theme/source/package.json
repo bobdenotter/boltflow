@@ -8,12 +8,13 @@
     "url": "https://github.com/bobdenotter/bolt-tufte-theme"
   },
   "main": "gulpfile.js",
-  "devDependencies": {
-    "gulp": "^3.9.1",
+  "dependencies": {
     "gulp-autoprefixer": "^4.0.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2"
+    "gulp-uglify": "^2.1.2",
+    "gulp": "^3.9.1",
+    "prismjs": "^1.6.0"
   },
   "scripts": {
     "start": "gulp",

@@ -1038,7 +1038,7 @@ label.sidenote-number {
 label.margin-toggle:not(.sidenote-number) {
   display: none; }
 
-body.sans p {
+body.sans p, body.sans li {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1.2rem; }
 
@@ -1061,12 +1061,12 @@ nav#mainnav {
       nav#mainnav span.sitename,
       nav#mainnav span.pagename {
         font-size: 1.4em;
-        line-height: 2.1em; } }
+        line-height: 2.4em; } }
     @media (max-width: 62em) {
       nav#mainnav span.sitename,
       nav#mainnav span.pagename {
         font-size: 1.2em;
-        line-height: 2.3em; } }
+        line-height: 2.9em; } }
   nav#mainnav a {
     color: #222;
     text-decoration: none; }

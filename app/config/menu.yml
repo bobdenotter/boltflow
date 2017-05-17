@@ -15,6 +15,8 @@ main:
             link: /Deploying_a_project
           - label: Development Checklist
             link: /Development_Checklist
+          - label: Fixing common issues
+            link: /Fixing_issues
     - label: The Bolt site
       link: http://bolt.cm
       class: last
