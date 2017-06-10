@@ -6,10 +6,10 @@
 # Place your own routes here, that have a HIGHER priority than the default routes.
 
 templatebinding:
-    path: /{template}
+    path: /{slug}
     defaults:
         _controller: controller.frontend:template
-
+        template: index.twig
 # ------------------------------------------------------------------------------
 # These are the routes defining the default behaviour of Bolt's frontend.
 # Changing these might give unexpected results or even break your website. If

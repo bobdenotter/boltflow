@@ -1,12 +1,3 @@
-{% extends '_base.twig' %}
-
-{% block title %}
-Development Checklist
-{% endblock %}
-
-{% block content %}
-  {% set text %}
-
 This is a convenient checklist for working with Boltflow. For details on each to the steps, I refer to the full Boltflow guide.
 
 ## Setting up (once)
@@ -37,8 +28,3 @@ This is a convenient checklist for working with Boltflow. For details on each to
 
 - [ ] `./boltflow.sh --dry-run` to check connection, warm caches
 - [ ] `./boltflow.sh` to check connection, warm caches
-
-
-  {% endset %}
-  {{ text|markdown }}
-{% endblock content %}

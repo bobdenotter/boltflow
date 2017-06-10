@@ -1,11 +1,4 @@
-{% extends '_base.twig' %}
 
-{% block title %}
-Setting up a project
-{% endblock %}
-
-{% block content %}
-  {% set text %}
 The easiest way to set up a bolt project is to use the command line. Where you
 want to set up the site, run the following commands:
 
@@ -216,6 +209,3 @@ webserver running on your local development machine, look into [WAMP][],
 [MAMP]: https://www.mamp.info/en/
 [XAMPP]: https://www.apachefriends.org/index.html
 [webroot]: https://docs.bolt.cm/3.2/howto/troubleshooting-outside-webroot#what-s-the-point-of-doing-this
-  {% endset %}
-  {{ text|markdown }}
-{% endblock content %}

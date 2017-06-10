@@ -15,6 +15,7 @@
             "Bolt\\Composer\\ScriptHandler::installAssets"
         ],
         "post-update-cmd": [
+            "Bolt\\Composer\\ScriptHandler::updateProject",
             "Bolt\\Composer\\ScriptHandler::installAssets"
         ],
         "post-create-project-cmd": [
@@ -25,7 +26,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-release/3.3" : "3.3.x-dev"
+            "dev-release/3.3": "3.3.x-dev"
         }
     }
 }

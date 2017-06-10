@@ -1,12 +1,3 @@
-{% extends '_base.twig' %}
-
-{% block title %}
-Deploying a project
-{% endblock %}
-
-{% block content %}
-  {% set text %}
-
 When it's time do deploy,
 
 Deploy Key
@@ -48,6 +39,3 @@ If this doesn't produce any errors, run the deploy for real:
 ./boltflow.sh
 ```
 
-  {% endset %}
-  {{ text|markdown }}
-{% endblock content %}

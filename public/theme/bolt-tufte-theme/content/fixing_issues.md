@@ -1,12 +1,3 @@
-{% extends '_base.twig' %}
-
-{% block title %}
-Fixing common issues
-{% endblock %}
-
-{% block content %}
-  {% set text %}
-
 ## If `boltflow.sh` is not executable
 
 ```bash
@@ -16,7 +7,3 @@ zsh: permission denied: ./boltflow.sh
 
 Fix by re-applying the executable bit on the `boltflow` file: `chmod a+x boltflow.sh`.
 
-
-  {% endset %}
-  {{ text|markdown }}
-{% endblock content %}

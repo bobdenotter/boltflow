@@ -1,12 +1,3 @@
-{% extends '_base.twig' %}
-
-{% block title %}
-  Boltflow - Introduction
-{% endblock %}
-
-{% block content %}
-  {% set text %}
-
 These documents describe my preferred way of working with Bolt, when it comes
 to the "dev ops" part of the process. So, the workflow of how to set up a Bolt
 install in such a way that it’s pleasant to work with, easy to upgrade, and
@@ -66,7 +57,3 @@ information:
 [working]: Working_updating_a_project
 [deploying]: Deploying_a_project
 [checklist]: Development_Checklist
-
-  {% endset %}
-  {{ text|markdown }}
-{% endblock content %}

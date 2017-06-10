@@ -1,12 +1,3 @@
-{% extends '_base.twig' %}
-
-{% block title %}
-Working in / updating a project
-{% endblock %}
-
-{% block content %}
-  {% set text %}
-
 One of the core concepts of Boltflow is ease of use when it comes to working
 with a project, moving it to another working environment, and updating the used
 components.
@@ -60,7 +51,3 @@ git checkout -- extensions/composer.lock
 
 This will revert the two `.lock` files to the version in git, and it will run
 the 'install' process to fetch the dependencies to match the previous state.
-
-  {% endset %}
-  {{ text|markdown }}
-{% endblock content %}
