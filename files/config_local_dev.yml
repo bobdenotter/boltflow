@@ -9,5 +9,8 @@ database:
 
 # Debug settings
 debug: true
+debug_show_loggedoff: false
 debug_error_level: -1
+debug_error_use_symfony: false      # When set to true, Symfony Profiler will be used for exception display when possible
+
 strict_variables: true
