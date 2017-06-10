@@ -1,15 +1,15 @@
 {% extends '_base.twig' %}
 
-{% set indexfile %}{% include 'content/index.json' %}{% endset %}
+{% set indexfile %}{{ source('content/index.json', ignore_missing = true) }}{% endset %}
 {% set index = indexfile|json_decode %}
 {% set slug = app.request.get('slug')|default('introduction') %}
-{% set title = index[slug] %}
-{% set body %}{% include 'content/' ~ slug ~ '.md' %}{% endset %}
+{% set title = index[slug]|default('404 Page not found.') %}
+{% set body %}{{ source('content/' ~ slug ~ '.md', ignore_missing = true) }}{% endset %}
 
 {% block title %}
   {{ title }}
 {% endblock %}
 
 {% block content %}
-    {{ body|markdown }}
+    {{ body|default('Oops, page not found.')|markdown }}
 {% endblock content %}

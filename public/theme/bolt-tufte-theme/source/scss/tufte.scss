@@ -681,3 +681,8 @@ mark {
   background-color: rgba(249, 238, 123, 0.5);
   border-bottom: 1px solid rgba(249, 238, 123, 1);
 }
+
+body p.small, body ul.small li {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
