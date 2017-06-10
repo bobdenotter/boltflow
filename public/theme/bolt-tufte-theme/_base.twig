@@ -2,15 +2,7 @@
 <head>
   <meta charset='utf-8'/>
   <title>
-      {% if Seo is defined %}
-        {{ seo.title() }}
-      {% else %}
-        {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
-        {{ app.config.get('general/sitename') }}
-        {% if record.title is not defined and app.config.get('general/payoff') %}
-          | {{ app.config.get('general/payoff') }}
-        {% endif %}
-      {% endif %}
+      {{ block('title') }} | {{ app.config.get('general/sitename') }}
   </title>
 
   {% if app.config.get('theme/body-font') != 'serif' %}
@@ -38,7 +30,7 @@
           <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
       {% endblock %}
     </span>
-    {{ menu() }}
+    {% include('_sub_menu.twig') %}
   </div>
   </div>
 </nav>
@@ -58,6 +50,18 @@
 
           {% block content %}
           {% endblock %}
+
+          <hr>
+          <p class="small">Navigation: </p>
+          <ul class="small">
+          {% for slug, title in index %}
+          <li class='index-{{ loop.index }}{% if loop.first %} first{% endif %}{% if loop.last %} last{% endif %}'>
+            <a href='/{{ slug }}'>
+              {{ title }}
+            </a>
+          </li>
+          {% endfor %}
+          </ul>
 
       </article>
 
