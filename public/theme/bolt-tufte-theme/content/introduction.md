@@ -53,7 +53,7 @@ information:
 [gitguide]: http://rogerdudler.github.io/git-guide/
 [githubguide]: https://guides.github.com/
 [gitforhumans]: https://abookapart.com/products/git-for-humans
-[setting-up]: Setting_up_a_project
-[working]: Working_updating_a_project
-[deploying]: Deploying_a_project
-[checklist]: Development_Checklist
+[setting-up]: setting_up_a_project
+[working]: working_updating_a_project
+[deploying]: deploying_a_project
+[checklist]: development_checklist
