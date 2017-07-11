@@ -2,7 +2,7 @@
 
 PUBLICFOLDER=""
 
-echo "⇒ Boltflow 🚀 - version 0.5.0"
+echo "⇒ Boltflow 🚀 - version 0.5.2"
 
 # Store the script working directory
 WD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -47,15 +47,6 @@ if [[ $1 = "config_local_prod" ]] ; then
     exit 1
 fi
 
-if [[ ! -f "$WD/app/config/config_local.yml" ]] ; then
-    echo ""
-    echo "Note: No local config is present at 'app/config/config_local.yml'. Run either of the following to get it:"
-    echo ""
-    echo "./boltflow.sh config_local_dev"
-    echo "./boltflow.sh config_local_prod"
-    echo ""
-fi
-
 if [[ ! -f "$WD/composer.json" ]] ; then
     mv $WD/composer.json.dist $WD/composer.json
 fi
@@ -96,6 +87,15 @@ if [[ -f "$WD/extensions/composer.json" ]] ; then
 fi
 
 php app/nut cache:clear
+
+if [[ ! -f "$WD/app/config/config_local.yml" ]] ; then
+    echo ""
+    echo "Note: No local config is present at 'app/config/config_local.yml'. Run either of the following to get it:"
+    echo ""
+    echo "./boltflow.sh config_local_dev"
+    echo "./boltflow.sh config_local_prod"
+    echo ""
+fi
 
 echo ""
 echo "Done! 👍"

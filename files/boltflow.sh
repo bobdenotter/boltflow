@@ -2,7 +2,7 @@
 
 PUBLICFOLDER=""
 
-echo "⇒ Boltflow 🚀 - version 0.5.1"
+echo "⇒ Boltflow 🚀 - version 0.5.2"
 
 # Store the script working directory
 WD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -51,11 +51,15 @@ if [[ ! -f "$WD/composer.json" ]] ; then
     mv $WD/composer.json.dist $WD/composer.json
 fi
 
-git config core.fileMode false
+if [ -d "$WD/.git" ]; then
+    git config core.fileMode false
 
-if ! (git pull) then
-    echo "\n\nGit pull was not successful. Fix what went wrong, and run this script again.\n\n"
-    exit 1
+    if ! (git pull) then
+        printf "\n\n\e[31mGit pull was not successful. Fix what went wrong, and run this script again.\n\n"
+        exit 1
+    fi
+else
+    printf "\e[31mNo git repository found.\n"
 fi
 
 if [[ ! -f "$WD/composer.json" ]] ; then
