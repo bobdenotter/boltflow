@@ -63,7 +63,7 @@ fi
 git config core.fileMode false
 
 if ! (git pull) then
-    echo "\n\nGit pull was not successful. Fix what went wrong, and run this script again.\n\n"
+    printf "\n\nGit pull was not successful. Fix what went wrong, and run this script again.\n\n"
     exit 1
 fi
 
