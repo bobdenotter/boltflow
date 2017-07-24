@@ -2,7 +2,7 @@
 
 PUBLICFOLDER=""
 
-echo "⇒ Boltflow 🚀 - version 0.5.2"
+echo "⇒ Boltflow 🚀 - version 0.5.3"
 
 # Store the script working directory
 WD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -78,11 +78,11 @@ if [[ $1 = "update" ]] ; then
     php composer.phar selfupdate
 fi
 
-php composer.phar $COMPOSERCOMMAND --ignore-platform-reqs --no-dev
+php composer.phar $COMPOSERCOMMAND --no-dev
 
 if [[ -f "$WD/extensions/composer.json" ]] ; then
     cd extensions
-    php ../composer.phar $COMPOSERCOMMAND --ignore-platform-reqs --no-dev
+    php ../composer.phar $COMPOSERCOMMAND --no-dev
     cd ..
 fi
 
