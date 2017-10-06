@@ -1,8 +1,28 @@
 #!/usr/bin/env bash
 
+function get_composer () {
+    EXPECTED_SIGNATURE=$(wget -q -O - https://composer.github.io/installer.sig)
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+
+    if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
+    then
+        >&2 echo 'ERROR: Invalid installer signature'
+        rm composer-setup.php
+        exit 1
+    fi
+
+    php composer-setup.php
+    RESULT=$?
+    rm composer-setup.php
+    if [[ $RESULT == 1 ]] ; then
+        exit 1
+    fi
+}
+
 PUBLICFOLDER=""
 
-echo "⇒ Boltflow 🚀 - version 0.5.3"
+echo "⇒ Boltflow 🚀 - version 0.6.0"
 
 # Store the script working directory
 WD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -71,7 +91,7 @@ chmod -Rf 777 app/database/ app/cache/ app/config/ extensions/
 chmod -Rf 777 $PUBLICFOLDER/files/ $PUBLICFOLDER/theme/ $PUBLICFOLDER/thumbs/ $PUBLICFOLDER/extensions/
 
 if [[ ! -f "$WD/composer.phar" ]] ; then
-    curl -sS https://getcomposer.org/installer | php
+    get_composer
 fi
 
 if [[ $1 = "update" ]] ; then
