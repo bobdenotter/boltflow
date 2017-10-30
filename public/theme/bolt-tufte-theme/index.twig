@@ -1,4 +1,5 @@
 {% extends '_base.twig' %}
+{% import '_macro.twig' as macros %}
 
 {% set indexfile %}{{ source('content/index.json', ignore_missing = true) }}{% endset %}
 {% set index = indexfile|json_decode %}
@@ -6,10 +7,33 @@
 {% set title = index[slug]|default('404 Page not found.') %}
 {% set body %}{{ source('content/' ~ slug ~ '.md', ignore_missing = true) }}{% endset %}
 
-{% block title %}
-  {{ title }}
+{% block bodyclass %}detail{% endblock %}
+
+{% block pagename %}
+    {{ title }}</a>
 {% endblock %}
 
-{% block content %}
-    {{ body|default('Oops, page not found.')|markdown }}
-{% endblock content %}
+{% block container %}
+
+  {{ dump(index) }}
+
+    <header>
+        <h1>
+        {{ title }}
+        </h1>
+    </header>
+
+    <article class="content">
+
+        {# {% if record.image_position|default('main') == 'sidebar' %}
+            {{ macros.image(record.values.image, record, 'sidebar') }}
+        {% endif %} #}
+
+        {{ body|markdown }}
+
+        {# {% include '_recordfooter.twig' %} #}
+
+    </article>
+
+{% endblock container %}
+

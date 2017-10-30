@@ -1,20 +1,97 @@
 @import 'settings';
 @import 'fonts';
+@import '../node_modules/bulma/bulma';
 @import 'magnific-popup/main';
-@import 'slicknav';
 @import 'breakpointdebug';
 @import 'prism';
+
+// ---- Grid ------
+body.homepage .grid {
+  display: grid;
+  grid-template-columns: 4% 2fr 1fr 4%;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-template-areas:
+    ". header  header  ."
+    ". article article ."
+    ". section section ."
+    ". aside   aside   .";
+
+  @include tablet {
+    grid-template-areas:
+      ". header  header  ."
+      ". article aside   ."
+      ". section section .";
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  article {
+    grid-area: article;
+    margin-bottom: 0;
+
+    hr {
+      margin-bottom: 0;
+    }
+  }
+
+  section {
+    grid-area: section;
+    margin: 0;
+    padding: 0;
+
+    @include tablet {
+      article {
+        width: 66.67%;
+      }
+    }
+  }
+
+  aside {
+    grid-area: aside;
+  }
+}
+
+body.detail .grid {
+  display: grid;
+  grid-template-columns: 4% auto 4%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". h ."
+    ". a .";
+
+  @include tablet {
+    grid-template-columns: 1fr 6fr 1fr;
+  }
+  @include desktop {
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+
+  header {
+    grid-area: h;
+  }
+
+  article {
+    grid-area: a;
+  }
+}
+
+
+
+// ----
 
 html {
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
+  -webkit-font-smoothing: auto;
 
-  @media (max-width: #{$grid-breakpoint-l-min}) {
-    font-size: 14px;
+  @include touch {
+    font-size: 15px;
   }
-
 }
 
 body {
@@ -22,43 +99,42 @@ body {
   background-color: $color-body;
   color: $color-text-body;
   counter-reset: sidenote-counter;
-}
 
-div.container {
-  max-width: 1140px;
-  width: calc(100% - 8rem);
-  @media (max-width: #{$grid-breakpoint-xs-min}) {
-    width: calc(100% - 3rem);
+  &.sans {
+    p, li {
+      font-family: $font-sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7rem;
+    }
+    p.meta {
+      font-family: $font-serif;
+      font-size: 1.2rem;
+    }
   }
-}
 
-body.boxed-page {
-  background: desaturate(darken($color-body, 15), 25); // Todo: make configurable color
-}
+  &.boxed-page {
+    background: desaturate(darken($color-body, 15), 25); // Todo: make configurable color
+  }
 
-div.boxed-page {
-  margin: 0 auto 2rem;
-  max-width: 1240px;
-  border: 1px solid darken($color-body, 15);
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
-  background-color: $color-body;
+  div.boxed-page {
+    margin: 0 auto 2rem;
+    max-width: 1140px;
+    border: 1px solid darken($color-body, 15);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+    background-color: $color-body;
+  }
 }
 
 header {
-
   h1 {
-    margin-top: 9rem;
+    margin-top: 7rem;
 
-    @media (max-width: #{$grid-breakpoint-l-min}) {
-      margin-top: 7rem;
-    }
-
-    @media (max-width: #{$grid-breakpoint-xs-min}) {
+    @include touch {
       margin-top: 6rem;
+      margin-bottom: 1.5rem;
     }
 
   }
-
 }
 
 h1,
@@ -77,47 +153,51 @@ h3 {
   }
 }
 
-h1 {
+.content h1, h1 {
   margin-bottom: 1.6rem;
-  font-size: 3.2rem;
+  font-size: 1.8rem;
 
-  @media (max-width: #{$grid-breakpoint-m-min}) {
+  @include desktop {
     font-size: 2.5rem;
   }
 
-  @media (max-width: #{$grid-breakpoint-xs-min}) {
-    font-size: 2rem;
+  @include widescreen {
+    font-size: 3.2rem;
   }
-
 }
 
-h2 {
+.content h2 {
   margin: 2.2rem 0 0 0;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
 
-  @media (max-width: #{$grid-breakpoint-m-min}) {
-    font-size: 2rem;
+  @include desktop {
+    font-size: 2.2rem;
   }
 
-  @media (max-width: #{$grid-breakpoint-xs-min}) {
-    font-size: 1.8rem;
+  @include widescreen {
+    font-size: 2.4rem;
   }
-
 }
 
-h3 {
+.content h3, aside h3 {
   font-style: italic;
   font-size: 1.7rem;
   margin-bottom: 0;
 }
 
-p.subtitle {
+body p.subtitle {
   font-style: italic;
   margin-top: 0rem;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
   display: block;
-  line-height: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+
+  @include tablet {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
 }
 
 p {
@@ -128,26 +208,22 @@ hr {
   margin: 2.2rem 0;
 }
 
-section > p.meta {
-  margin-top: -1rem;
+a:hover {
+  text-decoration: underline;
 }
 
 p.meta {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #555;
   margin: 0.7rem 0;
   font-style: italic;
 
   a {
-    background: none;
     &:hover {
-      background: none;
       color: darken($color-accent, 20%);
     }
   }
-
 }
-
 
 table {
   width: 100%;
@@ -264,54 +340,62 @@ article {
     margin-right: 24%;
   }
 
-  @media(min-width: #{$grid-breakpoint-m-min}) {
+  @include desktop {
     padding-right: 2rem;
   }
-
 
 }
 
 aside {
   padding-top: 0.8rem;
-    color: lighten(desaturate($color-text-body, 50), 20);
-
+  color: lighten(desaturate($color-text-body, 50), 20);
 
   p, ol, ul {
-    font-size: 1.15rem;
+    font-size: 1rem !important;
     line-height: 1.7rem;
   }
 
-  a {
-    $color: lighten(desaturate($color-accent, 80), 30);
-    color: $color;
-    text-decoration: none;
-    background-image: linear-gradient(rgba($color, 0.25) 0%, $color 100%);
-    background-repeat: repeat-x;
-    background-size: 1px 1px;
-    background-position: 0 86%;
-    // Clear descendors from underline
-    text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
+  li, li a {
+    color: lighten(desaturate($color-text-body, 50), 30);
+    font-size: 1rem !important;
+    line-height: 1.4rem !important;
+
   }
 
 }
 
-aside.sideimage {
-  float: right;
-  clear: right;
-  margin-right: calc(-42% - 3rem);
-  width: 42%;
-  margin-top: 0;
-  margin-bottom: 0;
+div.sideimage {
   padding-top: 0;
   font-size: 1.0rem;
   line-height: 1.6;
   vertical-align: baseline;
   position: relative;
 
-  @media (max-width: #{$grid-breakpoint-m-min}) {
+  @include tablet {
+    float: right;
+    clear: right;
+    margin-right: calc(-42% - 3rem);
+    width: 42%;
+    margin-right: 0;
+    width: 100%;
+
+    .imageholder {
+      width: 47%;
+      position: absolute;
+      right: 0;
+      margin-right: calc(-42% - 3rem);
+    }
+  }
+
+  @include desktop {
     float: none;
     margin-right: 0;
     width: 100%;
+
+    .imageholder {
+      width: 50%;
+      margin-right: calc(-50% - 3rem);
+    }
   }
 
 }
@@ -319,34 +403,11 @@ aside.sideimage {
 article p a,
 aside p a {
     color: $color-accent;
-    text-decoration: none;
-    // Underline via gradient background
-    background-image: linear-gradient(rgba($color-accent, 0.25) 0%, $color-accent 100%);
-    background-repeat: repeat-x;
-    background-size: 1px 1px;
-    background-position: 0 86%;
-    // Clear descendors from underline
+    text-decoration: underline;
     text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
     &:hover {
       color: darken($color-accent, 11%);
-      background-image: linear-gradient(to bottom, darken($color-accent, 6%) 0%, darken($color-accent, 6%) 100%);
     }
-    // Style selected links (or else text-shadow makes it look crazy ugly)
-    // Pseudo selectors must go separately, or they break each other
-    /*
-    &,
-    > * {
-      &::selection {
-        background-color: inherit;
-        color: $color-text-body;
-        text-shadow: none;
-      }
-      &::-moz-selection {
-        background-color: lighten($color-accent, 25%);
-        color: $color-text-body;
-        text-shadow: none;
-      }
-    } */
   }
 
 
@@ -389,11 +450,6 @@ blockquote {
 
 }
 
-
-li {
-  padding: 0.25rem 0;
-}
-
 samp {
   background-color: transparent;
 }
@@ -418,12 +474,21 @@ samp {
   border: 1px solid darken($color-body, 20);
   display: block;
 
+  @include tablet {
+    body.detail & {
+      margin: 0 -4em;
+    }
+  }
+
   a {
     background: none;
+    background-color: desaturate(darken($color-body, 10), 40);
+    display: block;
   }
 
   img {
     display: block;
+    margin: 0 auto;
   }
 
   span {
@@ -453,13 +518,14 @@ h1 .code, h2 .code, h3 .code {
   font-size: 1rem;
 }
 
-pre {
-
+.content pre {
   background-color: rgb(244, 243, 236);
+  white-space: pre-wrap;
+  font-size: 0.9rem;
 
-  @media (min-width: #{$grid-breakpoint-s-max}) {
-    margin-right: -260px;
-  }
+  // @include touch {
+  //   margin-right: -260px;
+  // }
 
   .code {
     overflow-x: scroll;
@@ -475,8 +541,12 @@ span.newthought {
   font-size: 1.2em;
 }
 
-input.margin-toggle {
-  display: none;
+input[type="search"] {
+  border: 1px solid darken($color-body, 25);
+  padding: 4px;
+  font-family: $font-sans-serif;
+  font-size: 1.0rem;
+  height: 2rem;
 }
 
 label.sidenote-number {
@@ -487,14 +557,6 @@ label.margin-toggle:not(.sidenote-number) {
   display: none;
 }
 
-body.sans {
-  p, li {
-    font-family: $font-sans-serif;
-    font-size: 1.2rem;
-  }
-
-}
-
 nav#mainnav {
   border-bottom: 1px solid darken($color-body, 15);
   background: transparentize(darken($color-body, 10), 0.15);
@@ -502,138 +564,39 @@ nav#mainnav {
   position: fixed;
   z-index: 100;
   width: 100%;
+  top: 0;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   font-size: 16px;
 
   span.sitename,
   span.pagename {
-    font-size: 1.6em;
-    line-height: 2.3em;
+    font-size: 1.4em;
+    line-height: 2.4em;
     position: absolute;
+    margin-left: 0.75rem;
 
-    @media (max-width: #{$grid-breakpoint-l-min}) {
-      font-size: 1.4em;
-      line-height: 2.4em;
-    }
-    @media (max-width: #{$grid-breakpoint-m-min}) {
-      font-size: 1.2em;
-      line-height: 2.9em;
+    a {
+      font-family: $font-serif;
     }
 
+    @include desktop {
+      font-size: 1.5em;
+      line-height: 2.2em;
+    }
+    @include widescreen {
+      font-size: 1.6em;
+      line-height: 2.1em;
+    }
   }
 
   a {
+    font-family: $font-sans-serif;
     color: #222;
     text-decoration: none;
   }
 
 }
 
-/* The Main menu itself.. */
-#mainmenu {
-
-  display: block;
-  float: right;
-  margin-top: 0.2rem;
-
-  ul {
-    // float: right;
-    margin: 0;
-    padding: 0;
-  }
-
-  ul li a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-    line-height: 3.4rem;
-    padding: 0 1em;
-    font-size: 92%;
-
-    @media (max-width: #{$grid-breakpoint-l-min}) {
-      font-size: 18px;
-      padding: 0 0.75em;
-    }
-    @media (max-width: #{$grid-breakpoint-m-min}) {
-      font-size: 16px;
-      padding: 0 0.5em;
-    }
-
-  }
-
-  ul li {
-    position: relative;
-    list-style: none;
-    float: left;
-    margin: 0;
-    padding: 0;
-  }
-
-  ul li.current-menu-item {
-    background:#ddd
-  }
-
-  ul li:not(:last-of-type):hover {
-    background:#f6f6f6
-  }
-
-  ul ul {
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    background:#fff;
-    padding:0
-  }
-
-  ul ul li {
-    float:none;
-    width: 300px
-  }
-
-  ul ul ul {
-    top:0;
-    left:100%
-  }
-
-  ul li:hover > ul {
-    display:block
-  }
-
-  form {
-    margin-top: 0.4em;
-
-    input {
-      font-size: 18px;
-      background-color: rgba(255, 255, 255, 0.5);
-      width: 10em;
-      margin: 0.6em 0 0 1em;
-    }
-  }
-
-}
-
-/* Slicknav tweaks */
-
-.slicknav_menu {
-  display: none;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-}
-
-@media screen and (max-width: 40em) {
-  /* #menu is the original menu */
-  #mainmenu {
-    display: none;
-  }
-
-  .slicknav_menu {
-    display: inline-block;
-    float: right;
-  }
-
-}
 
 /* Pagination */
 div.pagination {
@@ -647,10 +610,11 @@ div.pagination {
     li {
       list-style: none;
       display: inline-block;
-      border: 1px solid rgba(0, 0, 0, 0.11);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 2px;
       background-color: rgba(0, 0, 0, 0.1);
       padding: 0;
-      margin: 0;
+      margin: 0 2px;
 
       &.active {
         border: 1px solid rgba(0, 0, 0, 0.22);

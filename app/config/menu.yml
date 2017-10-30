@@ -8,15 +8,15 @@ main:
           - label: Introduction
             link: /
           - label: Setting up a project
-            link: /Setting_up_a_project
+            link: /setting_up_a_project
           - label: Working + updating a project
-            link: /Working_updating_a_project
+            link: /working_updating_a_project
           - label: Deploying a project
-            link: /Deploying_a_project
+            link: /deploying_a_project
           - label: Development Checklist
-            link: /Development_Checklist
+            link: /development_checklist
           - label: Fixing common issues
-            link: /Fixing_issues
+            link: /fixing_issues
     - label: The Bolt site
       link: http://bolt.cm
       class: last

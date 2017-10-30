@@ -8,67 +8,49 @@
   {% if app.config.get('theme/body-font') != 'serif' %}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext' rel='stylesheet'>
   {% endif %}
-  <link rel='stylesheet' href='{{ asset('css/responsive.min.css', 'theme') }}'/>
   <link rel='stylesheet' href='{{ asset('css/tufte.css', 'theme') }}'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body class='
 {%- if theme.bodyfont != 'serif' %}sans {% endif %}
 {% if theme.boxed|default(false) %}boxed-page {% endif -%}
-  '>
+{% block bodyclass %}generic{% endblock %}
+'>
 
-<nav id='mainnav'>
-  <div class='container'>
-<div class="col-l-8 offset-l-2" style="float: none;">
-    <span class='sitename'>
-      {% if app.request.get('_route') != 'homepage' %}
-        <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
-      {% endif %}
-    </span>
-    <span class='pagename'>
-      {% block title %}
+<nav id='mainnav' class="navbar" role="navigation" aria-label="dropdown navigation">
+    <div class="container">
+    <div class="navbar-brand">
+      <span class='sitename'>
+        {% if app.request.get('_route') != 'homepage' %}
           <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
-      {% endblock %}
-    </span>
-    {% include('_sub_menu.twig') %}
-  </div>
+        {% endif %}
+      </span>
+      <span class='pagename'>
+        {% block pagename %}
+            <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
+        {% endblock %}
+      </span>
+
+      <button class="button navbar-burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        {{ menu() }}
+      </div>
+    </div>
   </div>
 </nav>
 
 {% if theme.boxed|default(false) %}<div class='boxed-page'>{% endif %}
 
-<div class='container'>
-  <div class='row'>
-
-      <header class='col-xxs-12 col-m-8 offset-m-2'>
-          <h1>
-            {{ block('title') }} {# repeat the 'title' block #}
-          </h1>
-      </header>
-
-      <article class='col-xxs-12 col-m-8 offset-m-2'>
-
-          {% block content %}
-          {% endblock %}
-
-          <hr>
-          <p class="small">Navigation: </p>
-          <ul class="small">
-          {% for slug, title in index %}
-          <li class='index-{{ loop.index }}{% if loop.first %} first{% endif %}{% if loop.last %} last{% endif %}'>
-            <a href='/{{ slug }}'>
-              {{ title }}
-            </a>
-          </li>
-          {% endfor %}
-          </ul>
-
-      </article>
-
-      {% block aside %}
-      {% endblock %}
-
-  </div>
+<div class='container grid'>
+    {% block container %}
+    {% endblock container %}
 </div>
 
 {% if theme.boxed|default(false) %}</div>{% endif %}

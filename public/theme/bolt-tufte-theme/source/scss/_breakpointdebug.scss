@@ -1,7 +1,7 @@
 
 @if ($debug-breakpoint == true) {
   body:before {
-    content: 'grid-breakpoint-xxs';
+    content: 'mobile';
     position: fixed;
     text-align: center;
     bottom: 0;
@@ -13,18 +13,20 @@
     z-index: 999;
     padding: 0.5em 2em;
 
-    @media(min-width: #{$grid-breakpoint-xs-min}) {
-      content: 'grid-breakpoint-xs';
+    @include tablet {
+      content: 'tablet';
     }
-    @media(min-width: #{$grid-breakpoint-s-min}) {
-      content: 'grid-breakpoint-s';
+    @include desktop {
+      content: 'desktop';
     }
-    @media(min-width: #{$grid-breakpoint-m-min}) {
-      content: 'grid-breakpoint-m';
+    @include widescreen {
+      content: 'widescreen';
     }
-    @media(min-width: #{$grid-breakpoint-l-min}) {
-      content: 'grid-breakpoint-l';
+    @include fullhd {
+      content: 'fullhd';
     }
+
+
   }
 }
 

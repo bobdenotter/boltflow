@@ -1,12 +1,13 @@
-var gulp   = require('gulp');
-var $      = require('gulp-load-plugins')();
+var gulp = require('gulp');
+var $    = require('gulp-load-plugins')();
+var argv = require('yargs').argv;
+
+// Check for --production flag
+var PRODUCTION = !!(argv.production);
 
 // Define base paths for Sass and Javascript.
 var sassPaths = [
     'scss/',
-    'bower_components/foundation-sites/scss',
-    // 'bower_components/motion-ui/src',
-    'bower_components/slicknav/scss',
 ];
 
 var javascriptFiles = [
@@ -15,15 +16,18 @@ var javascriptFiles = [
 
 // Set up 'sass' task.
 gulp.task('sass', function() {
+
   return gulp.src('scss/tufte.scss')
+    .pipe($.sourcemaps.init())
     .pipe($.sass({
-      includePaths: sassPaths,
-      outputStyle: 'nested' // 'compressed' or 'nested'
+      includePaths: sassPaths
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
+    .pipe($.if(PRODUCTION, $.cssnano()))
+    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest('../css'));
 });
 

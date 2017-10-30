@@ -1,18 +1,18 @@
 {% macro image(img, rec, pos) %}
 
     {% if pos == 'sidebar' %}
-        {% set w = 633 %}
-        {% set h = 422 %}
+        {% set w = 400 %}
+        {% set h = 300 %}
         {% set class = 'sideimage' %}
     {% else %}
-        {% set w = 715 %}
-        {% set h = 322 %}
+        {% set w = 854 %}
+        {% set h = 460 %}
         {% set class = '' %}
     {% endif %}
 
     {% if (img.file is not empty) %}
         {% if class == 'sideimage' %}
-            <aside class='sideimage'>
+            <div class='sideimage'>
         {% endif %}
 
             <span class='imageholder'>
@@ -27,7 +27,7 @@
             </span>
 
         {% if class == 'sideimage' %}
-            </aside>
+            </div>
         {% endif %}
 
     {% endif %}
