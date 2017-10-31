@@ -416,6 +416,21 @@ section {
   padding-bottom: 1rem;
 }
 
+footer {
+  font-family: Georgia;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #AAA;
+  margin: 2em;
+  vertical-align: middle;
+
+  span {
+    line-height: 2.4rem;
+    font-size: 2.4rem;
+    vertical-align: middle;
+  }
+}
+
 p, ol, ul {
   font-size: 1.3rem;
   line-height: 1.9rem;
@@ -502,15 +517,20 @@ samp {
 }
 
 
-.code {
+code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 1.125rem;
+  font-size: 0.875em;
   line-height: 1.6;
+  color: #950b2f;
   background-color: #E8E8E8;
   padding: 2px;
+  -ms-font-feature-settings: normal;
+  -o-font-feature-settings: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
 }
 
-h1 .code, h2 .code, h3 .code {
+h1 code, h2 code, h3 code {
   font-size: 0.80em;
 }
 
@@ -521,11 +541,13 @@ h1 .code, h2 .code, h3 .code {
 .content pre {
   background-color: rgb(244, 243, 236);
   white-space: pre-wrap;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  margin-right: -120px;
 
-  // @include touch {
-  //   margin-right: -260px;
-  // }
+  // width: 120%
+  @include touch {
+    margin-right: -260px;
+  }
 
   .code {
     overflow-x: scroll;
