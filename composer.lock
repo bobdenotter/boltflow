@@ -4,26 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb64d0dc86a72079e76a9978caed898b",
+    "content-hash": "e622693f339b8af55990684aa9faaca8",
     "packages": [
         {
             "name": "bolt/bolt",
-            "version": "v3.3.6",
+            "version": "v3.4.0-beta5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/bolt.git",
-                "reference": "dd1b49f2fa942ac2febf86293f758049cc664cde"
+                "reference": "215141cd88155ace1e56d40aeec52b2a71106c3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/bolt/zipball/dd1b49f2fa942ac2febf86293f758049cc664cde",
-                "reference": "dd1b49f2fa942ac2febf86293f758049cc664cde",
+                "url": "https://api.github.com/repos/bolt/bolt/zipball/215141cd88155ace1e56d40aeec52b2a71106c3f",
+                "reference": "215141cd88155ace1e56d40aeec52b2a71106c3f",
                 "shasum": ""
             },
             "require": {
                 "bolt/collection": "^1.1",
+                "bolt/common": "^1.0",
                 "bolt/filesystem": "^2.3.1",
                 "bolt/pathogen": "~0.6",
+                "bolt/requirements": "^1.0",
+                "bolt/session": "^1.0",
                 "bolt/themes": "^1.0",
                 "bolt/thumbs": "^3.1.1",
                 "brandonwamboldt/utilphp": "^1.0",
@@ -50,7 +53,7 @@
                 "nesbot/carbon": "^1.20",
                 "paragonie/random_compat": "^1.4",
                 "passwordlib/passwordlib": "^1.0@beta",
-                "php": "^5.5.9 || ^7.0, <7.2",
+                "php": "^5.5.9 || ^7.0",
                 "silex/silex": "^1.3",
                 "silex/web-profiler": "^1.0",
                 "siriusphp/upload": "^1.2",
@@ -82,7 +85,7 @@
                 "symfony/web-profiler-bundle": "^2.8",
                 "symfony/yaml": "^2.8",
                 "tdammers/htmlmaid": "~0.7",
-                "twig/twig": "^1.28",
+                "twig/twig": "^1.34.2",
                 "ua-parser/uap-php": "^3.4"
             },
             "conflict": {
@@ -90,19 +93,18 @@
             },
             "require-dev": {
                 "bolt/codingstyle": "^1.0",
-                "codeception/codeception": "^2.2",
+                "codeception/codeception": "^2.3.3",
                 "league/flysystem-memory": "^1.0",
-                "lstrojny/phpunit-function-mocker": "0.3.0",
-                "phpunit/dbunit": "^1.3",
-                "phpunit/php-code-coverage": "^2.0",
-                "phpunit/phpunit": "^4.8",
-                "predis/predis": "^1.1",
+                "lstrojny/phpunit-function-mocker": "^0.3 || ^0.4",
+                "phpunit/dbunit": "^1.3 || ^3.0",
+                "phpunit/php-code-coverage": "^2.0 || ^4.0",
+                "phpunit/phpunit": "^4.8 || ^5.7",
                 "psr/cache": "^1.0",
                 "psr/simple-cache": "^1.0",
                 "roave/security-advisories": "dev-master@dev",
                 "sebastian/phpcpd": "^2.0",
                 "sorien/silex-pimple-dumper": "^1.0",
-                "symfony/phpunit-bridge": "^2.8"
+                "symfony/phpunit-bridge": "^2.8 || ^3.3.2"
             },
             "bin": [
                 "app/nut"
@@ -110,7 +112,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-3.3": "3.3.x-dev"
+                    "dev-3.4": "3.4.x-dev"
                 }
             },
             "autoload": {
@@ -133,7 +135,7 @@
                 "silex",
                 "symfony"
             ],
-            "time": "2017-09-29T10:19:54+00:00"
+            "time": "2017-10-29T12:16:42+00:00"
         },
         {
             "name": "bolt/collection",
@@ -359,6 +361,120 @@
                 "path"
             ],
             "time": "2017-06-10T08:28:12+00:00"
+        },
+        {
+            "name": "bolt/requirements",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bolt/requirements.git",
+                "reference": "39dfa278ed44284386e2af98cc8b04fc1d4f7710"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bolt/requirements/zipball/39dfa278ed44284386e2af98cc8b04fc1d4f7710",
+                "reference": "39dfa278ed44284386e2af98cc8b04fc1d4f7710",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.0",
+                "php": "^5.5.9 || ^7.0",
+                "symfony/requirements-checker": "^1.0"
+            },
+            "bin": [
+                "bin/bolt-requirements"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Requirement\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gawain Lynch",
+                    "email": "gawain.lynch@gmail.com"
+                }
+            ],
+            "description": "Requirement definitions for Bolt projects.",
+            "keywords": [
+                "bolt",
+                "cms",
+                "configuration"
+            ],
+            "time": "2017-10-21T08:37:13+00:00"
+        },
+        {
+            "name": "bolt/session",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bolt/session.git",
+                "reference": "ab32c5438fb9b5c330cac832c3545ec5649705be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bolt/session/zipball/ab32c5438fb9b5c330cac832c3545ec5649705be",
+                "reference": "ab32c5438fb9b5c330cac832c3545ec5649705be",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/common": "^1.0",
+                "php": "^5.5 || ^7.0",
+                "symfony/event-dispatcher": "^2.8 || ^3.0",
+                "symfony/http-foundation": "^2.8 || ^3.0",
+                "symfony/http-kernel": "^2.8 || ^3.0",
+                "symfony/polyfill-php70": "^1.0"
+            },
+            "require-dev": {
+                "bolt/codingstyle": "^2.0@dev",
+                "bolt/filesystem": "^2.0",
+                "escapestudios/symfony2-coding-standard": "^3.0@dev",
+                "friendsofphp/php-cs-fixer": "^2.4",
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^4.8",
+                "predis/predis": "^1.1",
+                "silex/silex": "^1.3 || ^2.0",
+                "symfony/cache": "^3.3",
+                "symfony/filesystem": "^2.8 || ^3.0",
+                "symfony/phpunit-bridge": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Session\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gawain Lynch",
+                    "email": "gawain.lynch@gmail.com"
+                },
+                {
+                    "name": "Carson Full",
+                    "email": "carsonfull@gmail.com"
+                }
+            ],
+            "description": "PHP session storage for Symfony's HTTP layer",
+            "time": "2017-08-04T07:47:33+00:00"
         },
         {
             "name": "bolt/themes",
@@ -4363,6 +4479,54 @@
                 "reflection"
             ],
             "time": "2017-10-01T21:00:16+00:00"
+        },
+        {
+            "name": "symfony/requirements-checker",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/requirements-checker.git",
+                "reference": "36fb25929509bdc841e7f51582d45e81e8c03949"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/requirements-checker/zipball/36fb25929509bdc841e7f51582d45e81e8c03949",
+                "reference": "36fb25929509bdc841e7f51582d45e81e8c03949",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "bin": [
+                "bin/requirements-checker"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Requirements\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Check Symfony requirements and give recommendations",
+            "keywords": [
+                "configuration",
+                "distribution"
+            ],
+            "time": "2017-10-01T16:30:53+00:00"
         },
         {
             "name": "symfony/routing",
