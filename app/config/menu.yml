@@ -17,6 +17,6 @@ main:
             link: /development_checklist
           - label: Fixing common issues
             link: /fixing_issues
-    - label: The Bolt site
-      link: http://bolt.cm
+    - label: Github
+      link: https://github.com/bobdenotter/boltflow
       class: last
