@@ -1,5 +1,5 @@
 {% extends '_base.twig' %}
-{% import '_macro.twig' as macros %}
+{% import 'partials/_macro.twig' as macros %}
 
 {% set indexfile %}{{ source('content/index.json', ignore_missing = true) }}{% endset %}
 {% set index = indexfile|json_decode %}
@@ -21,7 +21,7 @@
         </h1>
     </header>
 
-    <article class="content">
+    <article class='content'>
 
         {# {% if record.image_position|default('main') == 'sidebar' %}
             {{ macros.image(record.values.image, record, 'sidebar') }}

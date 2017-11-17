@@ -11,7 +11,7 @@ var sassPaths = [
 ];
 
 var javascriptFiles = [
-    'bower_components/jquery/dist/jquery.js',
+    'node_modules/jquery/dist/jquery.js',
 ];
 
 // Set up 'sass' task.
@@ -34,7 +34,7 @@ gulp.task('sass', function() {
 // Set up 'compress' task.
 gulp.task('compress', function() {
   return gulp.src('javascript/*.js')
-    .pipe($.uglify())
+    .pipe($.if(PRODUCTION, $.uglify()))
     .pipe(gulp.dest('../javascript'));
 });
 
@@ -44,9 +44,15 @@ gulp.task('copyjavascript', function() {
    .pipe(gulp.dest('javascript'));
 });
 
+gulp.task('setproduction', function() {
+  PRODUCTION = true;
+});
 
 // Set up 'default' task, with watches.
-gulp.task('default', ['sass', 'compress'], function() {
+gulp.task('default', ['copyjavascript', 'sass', 'compress'], function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
   gulp.watch(['javascript/**/*.js'], ['compress']);
 });
+
+// Set up 'build' task, without watches and force 'production'.
+gulp.task('build', ['setproduction', 'copyjavascript', 'sass', 'compress']);

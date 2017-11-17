@@ -10,7 +10,7 @@
         {% set class = '' %}
     {% endif %}
 
-    {% if (img.file is not empty) %}
+    {% if (img.file|default() is not empty) %}
         {% if class == 'sideimage' %}
             <div class='sideimage'>
         {% endif %}

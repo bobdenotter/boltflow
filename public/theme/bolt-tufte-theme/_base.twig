@@ -21,10 +21,11 @@
     <div class="container">
     <div class="navbar-brand">
       <span class='sitename'>
+        {% if app.request.get('_route') != 'homepage' %}
           <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
+        {% endif %}
       </span>
       <span class='pagename'>
-        <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a> &raquo;
         {% block pagename %}
             <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
         {% endblock %}
@@ -39,7 +40,7 @@
 
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-end">
-        {{ menu() }}
+        {{ menu(template = 'partials/_sub_menu.twig') }}
       </div>
     </div>
   </div>

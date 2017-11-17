@@ -30,7 +30,7 @@
   "author": "Bob den Otter <bob@twokings.nl>",
   "private": false,
   "dependencies": {
-    "bulma": "^0.6.0",
+    "bulma": "^0.6.1",
     "jquery": "^3.2.1",
     "magnific-popup": "^1.1.0"
   }
