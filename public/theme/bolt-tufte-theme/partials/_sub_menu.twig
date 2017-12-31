@@ -30,8 +30,10 @@
     {{ _self.display_menu_item(item, loop, 'navbar-link') }}
 {% endfor %}
 
+{% if theme.search|default() %}
 <div class="navbar-item">
     <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
         <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
     </form>
 </div>
+{% endif %}

@@ -11,6 +11,9 @@ boxed: false
 # Add jQuery to the rendered HTML, whether or not it's added by an extension.
 add_jquery: true
 
+# Whether or not to show the search box in the navigation bar.
+show_search: false
+
 # Template filenames. If you 're creating a theme for distribution, you can specify
 # the filenames of the templates here. The templates you will set in this config
 # file will override the ones in the global app/config/config.yml, so beware!
