@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64f357d901e999a8969376be6e7d482e",
+    "content-hash": "27d7cf580754cb0b8d07ec9801f5e2ff",
     "packages": [
         {
             "name": "bolt/bolt",
-            "version": "v3.5.0-rc1",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/bolt.git",
-                "reference": "a4f5a46fdb227a5ca9a4eaf332c34d6b1fdeb868"
+                "reference": "ab623edf7a3dc9a96d0a5090b0727ccfcfc0ba3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/bolt/zipball/a4f5a46fdb227a5ca9a4eaf332c34d6b1fdeb868",
-                "reference": "a4f5a46fdb227a5ca9a4eaf332c34d6b1fdeb868",
+                "url": "https://api.github.com/repos/bolt/bolt/zipball/ab623edf7a3dc9a96d0a5090b0727ccfcfc0ba3a",
+                "reference": "ab623edf7a3dc9a96d0a5090b0727ccfcfc0ba3a",
                 "shasum": ""
             },
             "require": {
@@ -130,7 +130,7 @@
                 "silex",
                 "symfony"
             ],
-            "time": "2018-04-01T10:31:02+00:00"
+            "time": "2018-04-18T13:23:18+00:00"
         },
         {
             "name": "bolt/collection",
@@ -474,16 +474,16 @@
         },
         {
             "name": "bolt/themes",
-            "version": "v2.0.0",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/themes.git",
-                "reference": "20633e4a6443e189cbf896ee1eb4dc1aed58376e"
+                "reference": "c09508396f0156179053e9df627046a7de25da33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/themes/zipball/20633e4a6443e189cbf896ee1eb4dc1aed58376e",
-                "reference": "20633e4a6443e189cbf896ee1eb4dc1aed58376e",
+                "url": "https://api.github.com/repos/bolt/themes/zipball/c09508396f0156179053e9df627046a7de25da33",
+                "reference": "c09508396f0156179053e9df627046a7de25da33",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +508,7 @@
                 "cms",
                 "twig"
             ],
-            "time": "2018-04-01T09:30:53+00:00"
+            "time": "2018-04-18T15:23:02+00:00"
         },
         {
             "name": "bolt/thumbs",
@@ -775,16 +775,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.6.3",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "88a69fda0f2187ad8714cedffd7a8872dceaa4c2"
+                "reference": "86ad51e8a3c64c9782446aae740a61fc6faa2522"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/88a69fda0f2187ad8714cedffd7a8872dceaa4c2",
-                "reference": "88a69fda0f2187ad8714cedffd7a8872dceaa4c2",
+                "url": "https://api.github.com/repos/composer/composer/zipball/86ad51e8a3c64c9782446aae740a61fc6faa2522",
+                "reference": "86ad51e8a3c64c9782446aae740a61fc6faa2522",
                 "shasum": ""
             },
             "require": {
@@ -848,7 +848,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2018-01-31T15:28:18+00:00"
+            "time": "2018-04-13T10:04:24+00:00"
         },
         {
             "name": "composer/semver",
@@ -1306,16 +1306,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "f76bf5ef631cec551a86c2291fc749534febebf1"
+                "reference": "11037b4352c008373561dc6fc836834eed80c3b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f76bf5ef631cec551a86c2291fc749534febebf1",
-                "reference": "f76bf5ef631cec551a86c2291fc749534febebf1",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/11037b4352c008373561dc6fc836834eed80c3b5",
+                "reference": "11037b4352c008373561dc6fc836834eed80c3b5",
                 "shasum": ""
             },
             "require": {
@@ -1377,7 +1377,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2018-04-01T23:33:17+00:00"
+            "time": "2018-04-07T18:44:18+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -2511,7 +2511,7 @@
                 "random",
                 "salt"
             ],
-            "time": "2012-09-07T15:54:38+00:00"
+            "time": "2013-01-14T18:25:52+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -4473,16 +4473,16 @@
         },
         {
             "name": "symfony/requirements-checker",
-            "version": "v1.0.3",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/requirements-checker.git",
-                "reference": "931997643fb512026241c7360c613bc1e61ed9cf"
+                "reference": "4cad41f35d5c561d84b6385c627a3785c55fec1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/requirements-checker/zipball/931997643fb512026241c7360c613bc1e61ed9cf",
-                "reference": "931997643fb512026241c7360c613bc1e61ed9cf",
+                "url": "https://api.github.com/repos/symfony/requirements-checker/zipball/4cad41f35d5c561d84b6385c627a3785c55fec1d",
+                "reference": "4cad41f35d5c561d84b6385c627a3785c55fec1d",
                 "shasum": ""
             },
             "require": {
@@ -4517,7 +4517,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2017-11-10T15:30:47+00:00"
+            "time": "2018-04-17T12:14:14+00:00"
         },
         {
             "name": "symfony/routing",
@@ -5490,7 +5490,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "bolt/bolt": 10,
         "passwordlib/passwordlib": 10
     },
     "prefer-stable": true,
