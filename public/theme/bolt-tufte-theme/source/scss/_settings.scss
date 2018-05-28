@@ -16,7 +16,7 @@ $font-serif       : 'Cardo', Palatino, "Palatino Linotype", "Palatino LT STD", "
 
 // ------------ Settings for Bulma ---------------
 
-// 1. Import the initial variables
+// Import the initial variables
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 
 $tablet: 767px;
@@ -25,6 +25,7 @@ $fullhd: 2000px;
 $primary: $color-accent;
 $primary-invert: $color-body;
 $family-primary: $font-serif;
+$content-heading-weight: $weight-normal;
 
 // ------------ Settings for Magnific Popup ---------------
 
@@ -69,4 +70,3 @@ $mfp-caption-subtitle-color: #555 !default;                    // Caption subtit
 
 // A11y
 $mfp-use-visuallyhidden: false !default;                      // Hide content from browsers, but make it available for screen readers
-

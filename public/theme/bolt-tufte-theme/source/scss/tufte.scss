@@ -1,16 +1,19 @@
 @import 'settings';
 @import 'fonts';
-@import '../node_modules/bulma/bulma';
+@import 'node_modules/bulma/bulma';
 @import 'magnific-popup/main';
 @import 'breakpointdebug';
-@import 'prism';
+
+@import 'node_modules/prismjs/themes/prism';
+@import 'node_modules/prismjs/plugins/line-numbers/prism-line-numbers';
+@import 'node_modules/prismjs/plugins/line-highlight/prism-line-highlight';
 
 // ---- Grid ------
 body.homepage .grid {
   display: grid;
-  grid-template-columns: 4% 2fr 1fr 4%;
+  grid-template-columns: 1% 2fr 1fr 1%;
   grid-template-rows: auto;
-  grid-gap: 10px;
+  grid-gap: 1rem;
   grid-template-areas:
     ". header  header  ."
     ". article article ."
@@ -18,6 +21,7 @@ body.homepage .grid {
     ". aside   aside   .";
 
   @include tablet {
+    grid-gap: 2rem;
     grid-template-areas:
       ". header  header  ."
       ". article aside   ."
@@ -30,7 +34,7 @@ body.homepage .grid {
 
   article {
     grid-area: article;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
 
     hr {
       margin-bottom: 0;
@@ -56,11 +60,11 @@ body.homepage .grid {
 
 body.detail .grid {
   display: grid;
-  grid-template-columns: 4% auto 4%;
+  grid-template-columns: 4% 92% 4%;
   grid-template-rows: auto;
   grid-template-areas:
-    ". h ."
-    ". a .";
+    ". header ."
+    ". article .";
 
   @include tablet {
     grid-template-columns: 1fr 6fr 1fr;
@@ -70,11 +74,11 @@ body.detail .grid {
   }
 
   header {
-    grid-area: h;
+    grid-area: header;
   }
 
   article {
-    grid-area: a;
+    grid-area: article;
   }
 }
 
@@ -153,7 +157,9 @@ h3 {
       color: darken($color-accent, 15%);
     }
   }
+
 }
+
 
 .content h1, h1 {
   margin-bottom: 1.6rem;
@@ -169,7 +175,7 @@ h3 {
 }
 
 .content h2 {
-  margin: 2.2rem 0 0 0;
+  margin: 0;
   font-size: 1.8rem;
 
   @include desktop {
@@ -183,8 +189,8 @@ h3 {
 
 .content h3, aside h3 {
   font-style: italic;
-  font-size: 1.7rem;
-  margin-bottom: 0;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 body p.subtitle {
@@ -351,12 +357,11 @@ article {
 }
 
 aside {
-  padding-top: 0.8rem;
   color: lighten(desaturate($color-text-body, 50), 20);
 
   p, ol, ul {
-    font-size: 1rem !important;
-    line-height: 1.7rem;
+    font-size: 0.9rem !important;
+    line-height: 1.6rem !important;
   }
 
   li, li a {
@@ -566,7 +571,8 @@ h1 code, h2 code, h3 code {
     height: 0; // We don't need this.
   }
 
-  .number {
+  .number,
+  .tag {
     background-color: transparent;
     font-size: 1em;
     height: 1em;
@@ -630,6 +636,7 @@ nav#mainnav {
     color: #222;
     text-decoration: none;
   }
+
 }
 
 
