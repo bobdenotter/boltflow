@@ -28,5 +28,11 @@
         "branch-alias": {
             "dev-release/3.3": "3.3.x-dev"
         }
+    },
+    "repositories": {
+        "packagist.org": {
+            "type": "composer",
+            "url": "https://repo-eu-uk-1.packagist.org"
+        }
     }
 }

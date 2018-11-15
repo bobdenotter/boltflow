@@ -1,0 +1,16 @@
+{
+    "repositories": {
+        "packagist.org": {
+            "type": "composer",
+            "url": "https://repo-eu-uk-1.packagist.org"
+        }
+    },
+    "require": {
+        "symfony/console": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Command\\": "Command"
+        }
+    }
+}
