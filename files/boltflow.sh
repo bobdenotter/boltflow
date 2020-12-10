@@ -12,7 +12,7 @@ function get_composer () {
         exit 1
     fi
 
-    php composer-setup.php
+    php composer-setup.php --1
     RESULT=$?
     rm composer-setup.php
     if [[ $RESULT == 1 ]] ; then
