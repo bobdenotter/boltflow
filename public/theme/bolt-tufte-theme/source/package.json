@@ -18,7 +18,7 @@
     "bulma": "^0.7.1",
     "jquery": "^3.5.0",
     "magnific-popup": "^1.1.0",
-    "prismjs": "^1.23.0"
+    "prismjs": "^1.24.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
